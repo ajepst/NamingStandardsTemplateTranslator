@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<NamingStandardsTemplate xmlns="http://www.w3.org/2001/XMLSchema-instance" NSTemplateDesc="Sample naming standard template." NSTemplateName="Sample Naming Standard">
+
+  <LogicalObjectConventions>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="1024" ObjectType="Entity" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="1024" ObjectType="Attribute" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="1024" ObjectType="View" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="1024" ObjectType="Key" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="1024" ObjectType="Relationship" Prefix="" Suffix=""/>
+  </LogicalObjectConventions>
+
+  <PhysicalObjectConventions>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="30" ObjectType="Table" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="30" ObjectType="Column" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="30" ObjectType="View" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="30" ObjectType="Index" Prefix="" Suffix=""/>
+    <ObjectConvention CaseConvention="[none]" ConstraintConvention="" MaxLength="30" ObjectType="Foreign Key" Prefix="" Suffix=""/>
+  </PhysicalObjectConventions>
+
+  <Abbreviations>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="One" PhysicalText="1" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Room" PhysicalText="Rm" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Date" PhysicalText="Dt" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Value" PhysicalText="Val" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Average" PhysicalText="Ave" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Count" PhysicalText="Cnt" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Eight" PhysicalText="8" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="English" PhysicalText="Eng" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Identifier" PhysicalText="Id" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Level" PhysicalText="Lvl" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Name" PhysicalText="Nm" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Number" PhysicalText="Num" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Organization" PhysicalText="Org" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="System" PhysicalText="Sys" Priority="Primary"/>
+  </Abbreviations>
+
+  <LogicalOrder>
+    <Order ObjectType="Entity" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="Attribute" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="View" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="Key" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="Relationship" Part1="..." Part2="..." Part3="..."/>
+  </LogicalOrder>
+
+  <PhysicalOrder>
+    <Order ObjectType="Table" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="Column" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="View" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="Index" Part1="..." Part2="..." Part3="..."/>
+    <Order ObjectType="Foreign Key" Part1="..." Part2="..." Part3="..."/>
+  </PhysicalOrder>
+
+  <GeneralOptions>
+    <LogicalWordSeparation WordSeparation="ByCase" WordSeparator=" "/>
+    <PhysicalWordSeparation WordSeparation="ByCase" WordSeparator=" "/>
+    <SpecialCharacters InvalidCharHandling="Ignore" InvalidCharReplacement="" InvalidCharacters="?.,()-=+!@"/>
+  </GeneralOptions>
+
+</NamingStandardsTemplate>
