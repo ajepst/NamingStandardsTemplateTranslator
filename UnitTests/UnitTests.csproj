@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\NameTranslatorTests.cs" />
     <Compile Include="Serialization\XmlSerializationTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,7 +60,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NamingStandardsTemplateTraslator\NamingStandardsTemplateTraslator.csproj">
+    <ProjectReference Include="..\NamingStandardsTemplateTranslator\NamingStandardsTemplateTranslator.csproj">
       <Project>{D274D2E5-3070-47BE-8680-B324E9B3EA5A}</Project>
       <Name>NamingStandardsTemplateTraslator</Name>
     </ProjectReference>
