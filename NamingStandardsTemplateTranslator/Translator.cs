@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Xml.Serialization;
-using NamingStandardsTemplateTraslator.Models;
-using NamingStandardsTemplateTraslator.Extensions;
+using NamingStandardsTemplateTranslator.Extensions;
+using NamingStandardsTemplateTranslator.Models;
 
-namespace NamingStandardsTemplateTraslator
+namespace NamingStandardsTemplateTranslator
 {
     public class Translator
     {

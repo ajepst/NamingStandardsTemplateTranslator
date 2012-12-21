@@ -7,8 +7,8 @@
     <ProjectGuid>{D274D2E5-3070-47BE-8680-B324E9B3EA5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NamingStandardsTemplateTraslator</RootNamespace>
-    <AssemblyName>NamingStandardsTemplateTraslator</AssemblyName>
+    <RootNamespace>NamingStandardsTemplateTranslator</RootNamespace>
+    <AssemblyName>NamingStandardsTemplateTranslator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

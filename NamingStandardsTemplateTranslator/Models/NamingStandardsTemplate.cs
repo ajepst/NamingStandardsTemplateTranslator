@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace NamingStandardsTemplateTraslator.Models
+namespace NamingStandardsTemplateTranslator.Models
 {
     [XmlRoot(Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
     public class NamingStandardsTemplate

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 using NUnit.Framework;
-using NamingStandardsTemplateTraslator.Models;
+using NamingStandardsTemplateTranslator.Models;
 using Should;
 
 namespace UnitTests.Serialization

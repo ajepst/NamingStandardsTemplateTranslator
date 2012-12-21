@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace NamingStandardsTemplateTraslator.Models
+namespace NamingStandardsTemplateTranslator.Models
 {
     public class Abbreviation
     {

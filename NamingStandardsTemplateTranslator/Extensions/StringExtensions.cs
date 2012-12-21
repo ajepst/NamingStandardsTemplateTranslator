@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NamingStandardsTemplateTraslator.Extensions
+namespace NamingStandardsTemplateTranslator.Extensions
 {
     public static class StringExtensions
     {

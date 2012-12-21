@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using NamingStandardsTemplateTraslator;
+using NamingStandardsTemplateTranslator;
 using Should;
 
 namespace UnitTests.Serialization
@@ -21,14 +21,14 @@ namespace UnitTests.Serialization
         public void Should_Unabbreviate()
         {
             var result = _translator.Unabbreviate(AbbreviatedName);
-            result.ToLowerInvariant().ShouldEqual(UnabbreviatedName.ToLowerInvariant());
+            result.ShouldEqual(UnabbreviatedName);
         }
 
         [Test]
         public void Should_Abbreviate()
         {
             var result = _translator.Abbreviate(UnabbreviatedName);
-            result.ShouldEqual(AbbreviatedName);
+            result.ToLowerInvariant().ShouldEqual(AbbreviatedName.ToLowerInvariant());
         }
     }
 }
