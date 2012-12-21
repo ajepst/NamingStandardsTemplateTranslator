@@ -1,8 +1,5 @@
-﻿using System.IO;
-using System.Xml.Serialization;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NamingStandardsTemplateTraslator;
-using NamingStandardsTemplateTraslator.Models;
 using Should;
 
 namespace UnitTests.Serialization
@@ -10,19 +7,28 @@ namespace UnitTests.Serialization
     [TestFixture]
     public class NameTranslatorTests
     {
-        [Test]
-        public void Should_Translate_To_Long_string()
+        private readonly Translator _translator;
+        private const string PathToNamingStandardsTemplateFile = "Test.xml";
+        private const string AbbreviatedName = "ENG_AVE";
+        private const string UnabbreviatedName = "EnglishAverage";
+
+        public NameTranslatorTests()
         {
-            var serializer = new XmlSerializer(typeof (NamingStandardsTemplate));
-            const string xmlPath = "Test.xml";
-            var reader = new StreamReader(xmlPath);
-            var template = (NamingStandardsTemplate) serializer.Deserialize(reader);
+            _translator = new Translator(PathToNamingStandardsTemplateFile);
+        }
 
-            var shortName = "ENG_AVE";
+        [Test]
+        public void Should_Unabbreviate()
+        {
+            var result = _translator.Unabbreviate(AbbreviatedName);
+            result.ToLowerInvariant().ShouldEqual(UnabbreviatedName.ToLowerInvariant());
+        }
 
-            var translator = new Translator();
-            var result = translator.Execute(template, shortName);
-            result.ShouldEqual("EnglishAverage");
+        [Test]
+        public void Should_Abbreviate()
+        {
+            var result = _translator.Abbreviate(UnabbreviatedName);
+            result.ShouldEqual(AbbreviatedName);
         }
     }
 }
