@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using NamingStandardsTemplateTranslator.Extensions;
@@ -25,11 +26,25 @@ namespace NamingStandardsTemplateTranslator
         public string Abbreviate(string source)
         {
             var words = source.SplitOnUpperCase();
-            return words.Select(
-                word =>
-                _namingStandardsTemplate.Abbreviations.First(abbreviation => abbreviation.LogicalText == word)
-                                        .PhysicalText)
-                        .Aggregate((current, next) => current + "_" + next);
+            var abbreviatedWords = new List<string>();
+            var currentWord = string.Empty;
+
+            foreach (var word in words)
+            {
+                currentWord += word;
+                var matchedAbbreviation =
+                    _namingStandardsTemplate.Abbreviations.FirstOrDefault(
+                        abbreviation => abbreviation.LogicalText == currentWord);
+                if (matchedAbbreviation == null)
+                    continue;
+                abbreviatedWords.Add(matchedAbbreviation.PhysicalText);
+                currentWord = string.Empty;
+            }
+
+            if (!string.IsNullOrEmpty(currentWord))
+                abbreviatedWords.Add(currentWord);
+
+            return abbreviatedWords.Aggregate((aggregated, next) => aggregated + "_" + next);
         }
 
         
