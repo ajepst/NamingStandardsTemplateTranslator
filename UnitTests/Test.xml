@@ -33,6 +33,9 @@
     <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Number" PhysicalText="Num" Priority="Primary"/>
     <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Organization" PhysicalText="Org" Priority="Primary"/>
     <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="System" PhysicalText="Sys" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="CCourse" PhysicalText="Ccrse" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="CCourses" PhysicalText="Ccrses" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="CompoundWord" PhysicalText="CW" Priority="Primary"/>
   </Abbreviations>
 
   <LogicalOrder>
