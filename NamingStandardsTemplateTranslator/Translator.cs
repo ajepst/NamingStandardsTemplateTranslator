@@ -27,19 +27,20 @@ namespace NamingStandardsTemplateTranslator
         {
             var words = source.SplitOnUpperCase();
             var abbreviatedWords = new List<string>();
-            var currentWord = string.Empty;
-            var isExtendedWord = false;
-
+            var notYetMatchedWords = new List<string>();
+          //  var currentWord = string.Empty;
+          //  var isExtendedWord = false;
             foreach (var word in words)
             {
-                var previousWordPart = currentWord;
-                currentWord += word;
+                notYetMatchedWords.Add(word);
+              //  var previousWordPart = currentWord;
+              //  currentWord += word;
                 var matchedAbbreviation =
                     _namingStandardsTemplate.Abbreviations.FirstOrDefault(
-                        abbreviation => abbreviation.LogicalText == currentWord);
+                        abbreviation => abbreviation.LogicalText == string.Join("", notYetMatchedWords));
                 if (matchedAbbreviation == null)
                 {
-                    if (isExtendedWord)
+                    if (notYetMatchedWords.Count() > 1)
                     {
                         var subMatch = _namingStandardsTemplate.Abbreviations.FirstOrDefault(
                             abbreviation => abbreviation.LogicalText == word);
@@ -48,23 +49,19 @@ namespace NamingStandardsTemplateTranslator
                             continue;
                         }
                         matchedAbbreviation = subMatch;
-                        abbreviatedWords.Add(previousWordPart);
+                        notYetMatchedWords.RemoveAt(notYetMatchedWords.Count - 1);
+                        abbreviatedWords.Add(string.Join("_",notYetMatchedWords ));
                         abbreviatedWords.Add(matchedAbbreviation.PhysicalText);
-                        currentWord = string.Empty;
-                        isExtendedWord = false;
-                        continue;
-
+                        notYetMatchedWords.Clear();
                     }
-                    isExtendedWord = true;
                     continue;
                 }
+                notYetMatchedWords.Clear();
                 abbreviatedWords.Add(matchedAbbreviation.PhysicalText);
-                currentWord = string.Empty;
-                isExtendedWord = false;
             }
 
-            if (!string.IsNullOrEmpty(currentWord))
-                abbreviatedWords.Add(currentWord);
+            if (notYetMatchedWords.Any())
+                abbreviatedWords.Add(string.Join("_", notYetMatchedWords));
 
             return abbreviatedWords.Aggregate((aggregated, next) => aggregated + "_" + next);
         }

@@ -31,19 +31,29 @@ namespace UnitTests.Serialization
             result.ToLowerInvariant().ShouldEqual(AbbreviatedName.ToLowerInvariant());
         }
 
+        [TestCase("CompoundWord", "CW")]
+        [TestCase("CompoundWordAverage", "CW_AVE")]
+        [TestCase("AverageCompoundWord", "AVE_CW")]
+        public void Should_Abbreviate_Compund_CamelCase_Word(string source, string target)
+        {  	
+            var result = _translator.Abbreviate(source);
+            result.ToLowerInvariant().ShouldEqual(target.ToLowerInvariant());	  	
+        }
+
         [Test]
         public void Should_Pass_Through_Words_Not_Matched_In_Named_Abbreviations()
         {
             const string source = "ShouldPassThrough";
+            const string correctResult = "Should_Pass_Through";
             var result = _translator.Abbreviate(source);
-            result.ShouldEqual(source);
+            result.ShouldEqual(correctResult);
         }
 
         [Test]
         public void Should_Accept_Passthrough_In_Between_Abbreviations()
         {
-            const string correctResult = "Eng_ShouldPassThrough_Ave";
             const string source = "EnglishShouldPassThroughAverage";
+            const string correctResult = "Eng_Should_Pass_Through_Ave";
             var result = _translator.Abbreviate(source);
             result.ShouldEqual(correctResult);
         }
@@ -51,8 +61,8 @@ namespace UnitTests.Serialization
         [Test]
         public void Should_handle_special_initial_as_separate_term_when_accompanying_word_is_not_matched()
         {
-            const string correctResult = "ParentUSI";
-            const string source = "Parent_USI";
+            const string source = "ParentUSI";
+            const string correctResult = "Parent_USI";
             var result = _translator.Abbreviate(source);
             result.ShouldEqual(correctResult);
         }
