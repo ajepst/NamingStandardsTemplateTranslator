@@ -28,17 +28,39 @@ namespace NamingStandardsTemplateTranslator
             var words = source.SplitOnUpperCase();
             var abbreviatedWords = new List<string>();
             var currentWord = string.Empty;
+            var isExtendedWord = false;
 
             foreach (var word in words)
             {
+                var previousWordPart = currentWord;
                 currentWord += word;
                 var matchedAbbreviation =
                     _namingStandardsTemplate.Abbreviations.FirstOrDefault(
                         abbreviation => abbreviation.LogicalText == currentWord);
                 if (matchedAbbreviation == null)
+                {
+                    if (isExtendedWord)
+                    {
+                        var subMatch = _namingStandardsTemplate.Abbreviations.FirstOrDefault(
+                            abbreviation => abbreviation.LogicalText == word);
+                        if (subMatch == null)
+                        {
+                            continue;
+                        }
+                        matchedAbbreviation = subMatch;
+                        abbreviatedWords.Add(previousWordPart);
+                        abbreviatedWords.Add(matchedAbbreviation.PhysicalText);
+                        currentWord = string.Empty;
+                        isExtendedWord = false;
+                        continue;
+
+                    }
+                    isExtendedWord = true;
                     continue;
+                }
                 abbreviatedWords.Add(matchedAbbreviation.PhysicalText);
                 currentWord = string.Empty;
+                isExtendedWord = false;
             }
 
             if (!string.IsNullOrEmpty(currentWord))

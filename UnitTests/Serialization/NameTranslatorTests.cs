@@ -47,5 +47,14 @@ namespace UnitTests.Serialization
             var result = _translator.Abbreviate(source);
             result.ShouldEqual(source);
         }
+
+        [Test]
+        public void Should_Accept_Passthrough_In_Between_Abbreviations()
+        {
+            const string correctResult = "Eng_ShouldPassThrough_Ave";
+            const string source = "EnglishShouldPassThroughAverage";
+            var result = _translator.Abbreviate(source);
+            result.ShouldEqual(correctResult);
+        }
     }
 }
