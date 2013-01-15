@@ -34,6 +34,8 @@ namespace UnitTests.Serialization
         [TestCase("CompoundWord", "CW")]
         [TestCase("CompoundWordAverage", "CW_AVE")]
         [TestCase("AverageCompoundWord", "AVE_CW")]
+        [TestCase("CompoundWordWithInnerWord", "CWWIW")]
+        [TestCase("CompoundWordWithInnerWordAndThenAnotherInner", "CWWIW_And_Then_Another_Innr")]
         public void Should_Abbreviate_Compund_CamelCase_Word(string source, string target)
         {  	
             var result = _translator.Abbreviate(source);

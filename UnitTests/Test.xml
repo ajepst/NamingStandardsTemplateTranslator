@@ -36,6 +36,8 @@
     <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="CCourse" PhysicalText="Ccrse" Priority="Primary"/>
     <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="CCourses" PhysicalText="Ccrses" Priority="Primary"/>
     <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="CompoundWord" PhysicalText="CW" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="Inner" PhysicalText="Innr" Priority="Primary"/>
+    <Abbreviation IsClass="False" IsIllegal="False" IsPrime="False" IsQualifier="False" LogicalText="CompoundWordWithInnerWord" PhysicalText="CWWIW" Priority="Primary"/>
   </Abbreviations>
 
   <LogicalOrder>

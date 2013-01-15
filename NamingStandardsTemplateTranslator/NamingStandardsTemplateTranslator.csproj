@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abbreviator.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Models\Abbreviation.cs" />
     <Compile Include="Models\GeneralOptions.cs" />
