@@ -16,7 +16,7 @@ namespace NamingStandardsTemplateTranslator
         private bool _reduced;
         private int _currentMatchCount = 0;
         private readonly List<object> _matchList = new List<object>();
-        private static readonly Regex Pattern = new Regex(@"(?<=\}_)([a-zA-Z0-9]+)|([a-zA-Z0-9]+)(?=_\{)|(\b[a-zA-Z]+\b)");
+        private static readonly Regex Pattern = new Regex(@"([a-zA-Z0-9]+)(?!\})");
 
         public Abbreviator(string source, NamingStandardsTemplate namingStandardsTemplate)
         {
@@ -58,7 +58,7 @@ namespace NamingStandardsTemplateTranslator
             var stringBuilder = new StringBuilder();
             foreach (Match match in Pattern.Matches(_source))
             {
-                stringBuilder.Append(_source.Substring(currentIndex, match.Index));
+                stringBuilder.Append(_source.Substring(currentIndex, match.Index - currentIndex));
                 stringBuilder.Append(SeperatedUnmatchedPart(match.Value));
                 currentIndex = match.Index + match.Length;
             }
