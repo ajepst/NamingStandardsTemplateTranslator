@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,6 +10,7 @@ namespace NamingStandardsTemplateTranslator
 {
     public class Abbreviator
     {
+        private readonly string _originalSource;
         private string _source;
         private readonly NamingStandardsTemplate _namingStandardsTemplate;
         private bool _reduced;
@@ -19,6 +21,7 @@ namespace NamingStandardsTemplateTranslator
         public Abbreviator(string source, NamingStandardsTemplate namingStandardsTemplate)
         {
             _source = source;
+            _originalSource = source;
             _namingStandardsTemplate = namingStandardsTemplate;
         }
 
@@ -36,10 +39,17 @@ namespace NamingStandardsTemplateTranslator
 
         private void Reduce()
         {
-            ApplyAbbreviationsInNamingStandardTemplate();
-            SeparateUnmatchedWords();
-            FormatMatchesAndStripExtraUnderscores();
-            RemoveLeadingAndTrailingUnderscores();
+            try
+            {
+                ApplyAbbreviationsInNamingStandardTemplate();
+                SeparateUnmatchedWords();
+                FormatMatchesAndStripExtraUnderscores();
+                RemoveLeadingAndTrailingUnderscores();
+            }
+            catch (Exception exception)
+            {
+                throw new AbbreviationException(string.Format("Failed to reduce {0}. Current reduced state: {1}", _originalSource, _source));
+            }
         }
 
         private void SeparateUnmatchedWords()
