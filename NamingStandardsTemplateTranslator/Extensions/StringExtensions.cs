@@ -11,7 +11,7 @@ namespace NamingStandardsTemplateTranslator.Extensions
             var words = new List<string>();
             var wordStartIndex = 0;
             var maybeAbbreviation = false;
-            for (var currentLetterIndex = 1; currentLetterIndex < source.Length; currentLetterIndex++)
+            for (var currentLetterIndex = 0; currentLetterIndex < source.Length; currentLetterIndex++)
             {
                 if (!char.IsUpper(source, currentLetterIndex))
                 {
