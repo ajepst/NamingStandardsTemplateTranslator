@@ -40,6 +40,7 @@ namespace UnitTests.Serialization
         [TestCase("AddressLine1", "Address_Line1")]
         [TestCase("EnglishUSIEnglish", "Eng_USI_Eng")]
         [TestCase("USIEnglish", "USI_Eng")]
+        [TestCase("USINonmatch", "USI_Nonmatch")]
         public void Should_Abbreviate_Compund_CamelCase_Word(string source, string target)
         {  	
             var result = _translator.Abbreviate(source);
