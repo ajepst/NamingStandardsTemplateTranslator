@@ -15,6 +15,12 @@ namespace NamingStandardsTemplateTranslator.Extensions
             {
                 if (!char.IsUpper(source, currentLetterIndex))
                 {
+                    if (maybeAbbreviation && (currentLetterIndex - wordStartIndex) > 1)
+                    {
+                        // we found an unmatched word following a caps abbreviation. back out this word and separate
+                        words.Add(source.Substring(wordStartIndex, currentLetterIndex - wordStartIndex-1));
+                        wordStartIndex = currentLetterIndex - 1;
+                    }
                     maybeAbbreviation = false;
                     continue;
                 }
