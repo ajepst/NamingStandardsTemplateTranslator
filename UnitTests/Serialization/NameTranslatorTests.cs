@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using NamingStandardsTemplateTranslator;
 using Should;
 
@@ -40,6 +41,7 @@ namespace UnitTests.Serialization
         [TestCase("AddressLine1", "Address_Line1")]
         [TestCase("EnglishUSIEnglish", "Eng_USI_Eng")]
         [TestCase("USIEnglish", "USI_Eng")]
+        [TestCase("USIEnglishes", "USI_Englishes")]
         [TestCase("USINonmatch", "USI_Nonmatch")]
         public void Should_Abbreviate_Compund_CamelCase_Word(string source, string target)
         {  	

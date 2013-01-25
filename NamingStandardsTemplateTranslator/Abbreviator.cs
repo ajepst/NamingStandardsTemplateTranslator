@@ -101,7 +101,7 @@ namespace NamingStandardsTemplateTranslator
                                             .ThenByDescending(abbreviation => abbreviation.LogicalText.Length)
                                             .ThenBy(abbreviation => abbreviation.LogicalText))
             {
-                if (!_source.Contains(abbreviation.LogicalText))
+                if (! Regex.IsMatch(_source, ".*"+abbreviation.LogicalText+"([^a-z].*)?$"))
                     continue;
                 _matchList.Add(abbreviation.PhysicalText);
                 _source = _source.Replace(abbreviation.LogicalText, "_{" + _currentMatchCount + "}_");
